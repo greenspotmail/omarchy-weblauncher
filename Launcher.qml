@@ -189,8 +189,12 @@ Item {
 
   function editBookmarksFile() {
     root.dismiss()
-    var editor = Quickshell.env("EDITOR") || Quickshell.env("VISUAL") || "nvim"
-    Quickshell.execDetached(["xdg-terminal-exec", "--title=Bookmarks", "--", editor, root.bookmarksAbsolutePath])
+    // Omarchy's own "open the user's configured default editor" wrapper —
+    // it already handles TUI-in-a-terminal vs GUI editors correctly, so
+    // there's no need to read $EDITOR (which is meant for inline shell use,
+    // e.g. "omarchy-launch-editor --inline", and can't just be exec'd as-is)
+    // or wrap xdg-terminal-exec ourselves.
+    Quickshell.execDetached(["omarchy-launch-editor", root.bookmarksAbsolutePath])
   }
 
   function startAdd() {

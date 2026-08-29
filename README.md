@@ -19,16 +19,16 @@ URL launcher and a bookmarks picker, sharing one panel with a bar icon.
 - **Add bookmarks** from the panel itself, with autocomplete against your
   existing categories/subcategories so you don't fat-finger a near-duplicate
   category.
-- **Edit bookmarks** in your `$EDITOR` (falls back to `nvim`) for anything
-  the quick-add flow doesn't cover.
+- **Edit bookmarks** in your Omarchy-configured default editor (via
+  `omarchy-launch-editor`) for anything the quick-add flow doesn't cover.
 - A bar icon: left-click opens Search, right-click opens Bookmarks.
 
 ## Requirements
 
 - `jq`
-- `xdg-open` and `xdg-terminal-exec` (both ship with Omarchy by default)
-- A terminal-based editor available as `$EDITOR` (or `nvim` installed, which
-  is the fallback if `$EDITOR`/`$VISUAL` aren't set)
+- `xdg-open` (ships with Omarchy by default)
+- Any Omarchy system already satisfies these, plus has a default editor
+  configured (`omarchy-launch-editor` falls back to `nvim` if none is set)
 
 ## Install
 
