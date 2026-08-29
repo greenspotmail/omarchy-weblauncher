@@ -3,6 +3,8 @@
 A slide-down launcher for [Omarchy](https://omarchy.org/): web search / direct
 URL launcher and a bookmarks picker, sharing one panel with a bar icon.
 
+![Web Launcher preview](preview.png)
+
 ## Features
 
 - **Web search** — type a query and it opens your chosen search engine, or
