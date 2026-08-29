@@ -31,7 +31,7 @@ URL launcher and a bookmarks picker, sharing one panel with a bar icon.
 ## Install
 
 ```
-omarchy plugin add <this-repo-url> --enable
+omarchy plugin add git@gitlab.com:thegreenspot1/omarchy-weblauncher.git --enable
 ```
 
 Or manually: clone/copy this folder to
