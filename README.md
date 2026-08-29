@@ -43,6 +43,19 @@ Or manually: clone/copy this folder to
 omarchy plugin enable weblauncher --section center
 ```
 
+## Uninstall
+
+```
+omarchy plugin remove weblauncher
+```
+
+This removes the plugin folder and its bar icon. If you added the
+keybindings below, remove those lines from `~/.config/hypr/bindings.lua`
+too. It also leaves your settings file
+(`~/.local/state/omarchy/settings/weblauncher.json`) and your bookmarks
+file untouched — delete those yourself if you want a completely clean
+removal.
+
 ## Keybindings
 
 Add to `~/.config/hypr/bindings.lua` (adjust keys to taste — these override
