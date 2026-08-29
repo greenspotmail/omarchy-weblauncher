@@ -1,0 +1,15 @@
+#!/bin/bash
+# Persists the launcher's engine + bookmarks-file preference.
+# Usage: save-settings <engine> <bookmarks-file>
+set -euo pipefail
+
+[[ $# -eq 2 ]] || { echo "Usage: $0 <engine> <bookmarks-file>" >&2; exit 1; }
+engine=$1
+bookmarks_file=$2
+
+dir="$HOME/.local/state/omarchy/settings"
+mkdir -p "$dir"
+
+jq -n --arg engine "$engine" --arg bookmarksFile "$bookmarks_file" \
+  '{engine: $engine, bookmarksFile: $bookmarksFile}' > "$dir/weblauncher.json.tmp"
+mv "$dir/weblauncher.json.tmp" "$dir/weblauncher.json"

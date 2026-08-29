@@ -1,0 +1,34 @@
+#!/bin/bash
+# Appends a bookmark to the bookmarks file, creating the category section
+# if it doesn't exist yet. Called with argv (no shell interpolation of
+# user-entered text), so names/URLs containing odd characters are safe.
+# Usage: add-bookmark <bookmarks-file> <category> <name> <url>
+set -euo pipefail
+
+[[ $# -eq 4 ]] || { echo "Usage: $0 <bookmarks-file> <category> <name> <url>" >&2; exit 1; }
+file=$1
+category=$2
+name=$3
+url=$4
+
+[[ -n $name && -n $url ]] || { echo "name and url are required" >&2; exit 1; }
+[[ -n $category ]] || category="Uncategorized"
+
+mkdir -p "$(dirname "$file")"
+touch "$file"
+
+entry="${name} | ${url}"
+header="[${category}]"
+
+if grep -qxF "$header" "$file"; then
+  awk -v hdr="$header" -v entry="$entry" '
+    { print }
+    $0 == hdr && !done { print entry; done = 1 }
+  ' "$file" > "$file.tmp" && mv "$file.tmp" "$file"
+else
+  {
+    [[ -s "$file" ]] && echo
+    echo "$header"
+    echo "$entry"
+  } >> "$file"
+fi

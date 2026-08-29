@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "weblauncher",
+  "name": "Web Launcher",
+  "version": "1.0.0",
+  "author": "ashley",
+  "description": "Web search / URL launcher and a bookmarks picker, sharing one slide-down panel",
+  "kinds": [
+    "overlay",
+    "bar-widget"
+  ],
+  "keepLoaded": true,
+  "entryPoints": {
+    "overlay": "Launcher.qml",
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Launcher",
+    "description": "Web search and bookmarks",
+    "category": "Utilities",
+    "allowMultiple": false
+  }
+}
